@@ -8,13 +8,13 @@ from pathlib2 import Path
 log_name=op.join(op.dirname(op.realpath(__file__)), 'log.txt')
 
 # Episode Regular Expression Matching Rules
-episode_rules = [r'(.*)\[(\d*\.*\d*)v*\d*(?:END)?\](.*)',
-                 r'(.*)\[E(\d*\.*\d*)v*\d*(?:END)?\](.*)',
+episode_rules = [r'(.*)\[(\d{1,3}|\d{1,3}\.\d{1,2})(?:v\d{1,2})?(?:END)?\](.*)',
+                 r'(.*)\[E(\d{1,3}|\d{1,3}\.\d{1,2})(?:v\d{1,2})?(?:END)?\](.*)',
                  r'(.*)\[第(\d*\.*\d*)话(?:END)?\](.*)',
                  r'(.*)\[第(\d*\.*\d*)話(?:END)?\](.*)',
                  r'(.*)第(\d*\.*\d*)话(?:END)?(.*)',
                  r'(.*)第(\d*\.*\d*)話(?:END)?(.*)',
-                 r'(.*)- (\d*\.*\d*)v*\d*(?:END)? (.*)']
+                 r'(.*)- (\d{1,3}|\d{1,3}\.\d{1,2})(?:v\d{1,2})?(?:END)? (.*)']
 # Suffixs of files we are going to rename
 suffixs = ['mp4', 'mkv', 'avi', 'mov', 'flv', 'rmvb', 'ass', 'idx']
 
@@ -78,7 +78,7 @@ if __name__ == "__main__":
             rename(root, name)
     else:
         print('Please input whether only root, or only path, or both root and name')
-    # os.system('PAUSE')
+    os.system('PAUSE')
     # for rule in episode_rules:
     #     matchObj = re.match(rule, name, re.I)
     #     if matchObj is not None:
