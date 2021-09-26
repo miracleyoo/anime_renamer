@@ -43,8 +43,8 @@ def rename(root, name):
             # print(new_name)
             print(f'{name} -> {new_name}')
             with codecs.open(log_name, 'a+', 'utf-8') as f:
-                f.writelines(f'{name} -> {new_name}')
-                # print(f'{name} -> {new_name}', file=f)
+                # f.writelines(f'{name} -> {new_name}')
+                print(f'{name} -> {new_name}', file=f)
 
             os.rename(str(root/name), str(root/new_name))
             general_check(root, new_name)
